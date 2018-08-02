@@ -5,63 +5,63 @@
             "name": "Nikola Tesla",
             "quote": "The present is theirs; the future, for which I really worked, is mine.",
             "birthday": "July 10, 1856",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "https://www.biography.com/.image/t_share/MTQ4NDI1NTU4NzM1MjAxNDgz/nikola_tesla_napoleon-sarony-public-domain-via-wikimedia-commons.jpg"
         },
         {
             "id": 2,
             "name": "Albert Einstein",
             "quote": "Imagination is more important than knowledge.",
             "birthday": "March 14, 1879",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzMy02grOPbnXb0CibPxCkw2h0mBc5E1PuwX6NEEPVRuuezXzy"
         },
         {
             "id": 3,
             "name": "Isaac Newton",
             "quote": "If I have seen further than others, it is by standing upon the shoulders of giants.",
             "birthday": "December 25, 1642",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/import/2013/images/2012/01/newton.jpg?itok=AL0Q2JFN"
         },
         {
             "id": 4,
             "name": "Galileo Galilei",
             "quote": "You cannot teach a man anything; you can only help him find it within himself.",
             "birthday": "February 15, 1564",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd9sVNq2fbWWJPbbWLe3LNnzAxFVGD704NZtd46UtEHWjhPu3sTg"
         },
         {
             "id": 5,
             "name": "Marie Curie",
             "quote": "Be less curious about people and more curious about ideas.",
             "birthday": "November 7, 1867",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "https://www.biography.com/.image/t_share/MTE5NTU2MzE2MTkzNzE5ODE5/marie-curie-9263538-1-402.jpg"
         },
         {
             "id": 6,
             "name": "Charles Darwin",
             "quote": "A man who dares to waste one hour of time has not discovered the value of life.",
             "birthday": "February 12, 1809",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "https://www.biography.com/.image/t_share/MTE5NDg0MDU0OTM4NjE3MzU5/charles-darwin-9266433-1-402.jpg"
         },
         {
             "id": 7,
             "name": "Stephen Hawking",
             "quote": "Intelligence is the ability to adapt to change.",
             "birthday": "January 8, 1942",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "http://www.gstatic.com/tv/thumb/persons/315047/315047_v9_ba.jpg"
         },
         {
             "id": 8,
             "name": "Johannes Kepler",
             "quote": "Nature uses as little as possible of anything.",
             "birthday": "December 27, 1571",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIbajzVuuLg88c8E4SHHSkkgglBj35UdWoQeCyPTXnNSbXFIA8jg"
         },
         {
             "id": 9,
             "name": "Thomas Edison",
             "quote": "Genius is one percent inspiration and ninety-nine percent perspiration.",
             "birthday": "February 11, 1847",
-            "image_url": "http://lorempixel.com/300/150/"
+            "image_url": "data:image/jpeg;base64,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"
         }
     ]
 }
