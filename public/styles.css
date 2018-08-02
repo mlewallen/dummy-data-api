@@ -21,10 +21,27 @@ time, mark, audio, video {
 }
 
 /* Main app styles */
-
 body {
-	background-color: #ccc;
+	background-color: #dfdfdf;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: #292f36;
 }
+a {
+	color: #3e78b2;
+	text-decoration: none;
+	transition: all .5s ease;
+}
+a:hover {
+	color: #23568a;
+	text-decoration: none;
+}
+
+/* Color Classes */
+.text-white { color: #fff !important; }
+.bg-primary { background-color: #3e78b2; }
+a.bg-primary:hover { background-color: #23568a; }
+.bg-success { background-color: #4dcc82; }
+.bg-danger { background-color: #ff6b6b; }
 
 /* Header */
 .navbar { padding: 1em 2em; }
@@ -50,14 +67,15 @@ body {
 .image-wrapper {
 	padding-bottom: 0;
 	height: 415px;
-	background: #ddd url() no-repeat center /cover;
+	background: #8d99ae url() no-repeat center /cover;
 }
 
 .content-wrapper {
 	padding: 2em;
+	box-sizing: border-box;
 }
 
-img { background-color: #cfcfcf; transition: all .5s ease; }
+img { background-color: #8d99ae; transition: all .5s ease; }
 
 #quote {
 	margin: 0;
@@ -99,10 +117,6 @@ p { margin-bottom: 0; padding-bottom: 0; }
 	float: left;
 	cursor: pointer;
 	transition: all .4s ease;
-}
-.controls .next:hover,
-.controls .prev:hover {
-	background-color: #4240b1;
 }
 
 @media (min-width: 768px) {
