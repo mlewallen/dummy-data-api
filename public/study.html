@@ -21,15 +21,24 @@
         </nav>
     </header>
 
-    <section class="landing text-white">
-        <div class="container">
-            <h1>Test your knowledge of scientist quotes by taking the Smart Peeps Quote Test!</h1>
-            <p>Study up a bit or jump right into the quiz, the choice is yours.</p>
-            <a class="btn bg-primary text-white" href="/study.html">Study First <i class="fa fa-glasses"></i></a>
-            <a class="btn bg-success text-white" href="/quiz.html">Take the Quiz <i class="fa fa-pencil-alt"></i></a>
-        </div>
-    </section>
+    <select name="pickPerson" id="pickPerson"></select>
 
-    <script type="text/javascript" src="app_vanilla.js"></script>
+    <div id="appStudy" class="app">
+        <div class="app-container">            
+            <div class="image-wrapper" id="image"></div>
+            <div class="content-wrapper">
+                <h1 class="quoteIcon">"</h1>
+                <h2 id="quote" class="text-primary"></h2>
+                <h4 id="name" class="name"></h4>
+                <p class="text-gray">Born - <span id="bday" class="birthday"></span></p>
+            </div>
+            <div class="controls">
+                <a id="prev" class="prev bg-primary"><i class="fa fa-angle-left fa-1x"></i></a>
+                <a id="next" class="next bg-primary"><i class="fa fa-angle-right fa-1x"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="appStudy.js"></script>
 </body>
 </html>

@@ -20,12 +20,14 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-/* Main app styles */
+/* Main styles */
+
 body {
 	background-color: #dfdfdf;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color: #292f36;
 }
+
 a {
 	color: #3e78b2;
 	text-decoration: none;
@@ -36,23 +38,104 @@ a:hover {
 	text-decoration: none;
 }
 
+.btn {
+	padding: 1em 2em;
+	font-size: 1.2em;
+	font-weight: bold;
+	letter-spacing: 1px;
+	display: inline-block;
+}
+
+.container {
+	width: 94%;
+	margin: auto;
+	max-width: 800px;
+}
+
 /* Color Classes */
+
 .text-white { color: #fff !important; }
+
 .bg-primary { background-color: #3e78b2; }
 a.bg-primary:hover { background-color: #23568a; }
+
 .bg-success { background-color: #4dcc82; }
+a.bg-success:hover { background-color: #1ba053; }
+
 .bg-danger { background-color: #ff6b6b; }
 
 /* Header */
-.navbar { padding: 1em 2em; }
-
-/* App */
-#app {
-  padding: 4em 0em;
+.navbar { 
+	padding: 1em 2em; 
+	position: relative;
+	z-index: 10;
+	box-shadow: 1px 5px 10px rgba(0,0,0,.15);
 }
-#app img { width: 100%; }
 
-/* App Elements */
+.logo-text {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+nav {
+	position: absolute;
+	right: 2em;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.nav-list { 
+	text-align: right;
+	list-style: none;
+}
+
+.nav-list li {
+	display: inline-block;
+	margin-left: 1em;
+}
+
+.nav-list li .nav-item {
+	color: #fff;
+}
+
+.nav-list li .nav-item:hover {
+	color: #292f36;
+}
+
+/* Landing Page Styling */
+
+.landing {
+	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)), url(assets/images/landing.jpg) no-repeat center / cover;
+	height: calc(100vh - 58px);
+	min-height: 500px;
+	display: flex;
+    justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 4em 0em;
+	box-sizing: border-box;
+}
+
+.landing h1 {
+	font-size: 2em;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+.landing p {
+	font-size: 1.2em;
+	margin-bottom: 1em;
+}
+
+.landing .btn { margin-top: .5em; }
+
+/* Main App styling */
+
+.app { padding: 4em 0em; }
+
+.app img { width: 100%; }
+
+/* Main App Elements */
 
 .app-container {
 	position: relative;
@@ -139,6 +222,14 @@ p { margin-bottom: 0; padding-bottom: 0; }
 	}
 }
 @media (max-width: 767px) {
+
+	/* header */
+	.logo-text { font-size: .9em; }
+
+	/* Landing Page */
+	.landing { height: calc(100vh - 52px);}
+
+	/* App styling */
 	.controls { left: inherit; right: 0; transform: none; }
 
 	.content-wrapper { position: relative; overflow: hidden; }
