@@ -1,0 +1,136 @@
+/* Resets */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* Main app styles */
+
+body {
+	background-color: #ccc;
+}
+
+/* Header */
+.navbar { padding: 1em 2em; }
+
+/* App */
+#app {
+  padding: 4em 0em;
+}
+#app img { width: 100%; }
+
+/* App Elements */
+
+.app-container {
+	position: relative;
+	box-shadow: 0 0 20px rgba(0,0,0,.175);
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+	overflow: auto;
+	background-color: #fff;
+}
+
+.image-wrapper {
+	padding-bottom: 0;
+	height: 415px;
+	background: #ddd url() no-repeat center /cover;
+}
+
+.content-wrapper {
+	padding: 2em;
+}
+
+img { background-color: #cfcfcf; transition: all .5s ease; }
+
+#quote {
+	margin: 0;
+	padding: 0;
+}
+
+#name {
+	margin-top: 1em;
+	padding-top: 0;
+}
+
+p { margin-bottom: 0; padding-bottom: 0; }
+
+.quoteIcon {
+	font-family: 'Cinzel Decorative', cursive;
+	font-weight: 900;
+	font-size: 14em;
+	line-height: 0;
+	padding: 0;
+	margin: -5% 0 0;
+	opacity: .15;
+	position: absolute;
+	top: 50%;
+	left: 40px;
+}
+
+.controls {
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+	transform: translateX(-50%);
+}
+
+.controls .next,
+.controls .prev {
+	padding: 1.75em 2em;
+	color: #fff;
+	display: inline-block;
+	float: left;
+	cursor: pointer;
+	transition: all .4s ease;
+}
+.controls .next:hover,
+.controls .prev:hover {
+	background-color: #4240b1;
+}
+
+@media (min-width: 768px) {
+	.image-wrapper {
+		width: 40%;
+		padding-bottom: 55%;
+		height: auto;
+	}
+
+	.content-wrapper {
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		padding: 4em;
+	}
+}
+@media (max-width: 767px) {
+	.controls { left: inherit; right: 0; transform: none; }
+
+	.content-wrapper { position: relative; overflow: hidden; }
+
+	.quoteIcon {
+		top: 145px;
+		left: 10px;
+	}
+}
