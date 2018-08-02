@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Button next code to cycle through options
             function selectChangeNext() {
-                val = select.options.selectedIndex;
+                let val = select.options.selectedIndex;
                 let id;
                 if(val === select.length - 1) {
                     id = 0;
@@ -51,24 +51,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 return id;
             }
             document.getElementById('next').addEventListener('click', function () {
-                select.options.selectedIndex = selectChangeNext()
-                updateApp(selectChangeNext() - 1)
+                select.options.selectedIndex = selectChangeNext();
+                updateApp(selectChangeNext() - 1);
             });
 
             // Button previous code to cycle through options in reverse
             function selectChangePrev() {
-                val = parseInt(select.options[select.selectedIndex].value);
+                //val = parseInt(select.options[select.selectedIndex].value);
                 let id;
-                if(val === 0) {
+                if(select.options.selectedIndex === 0) {
                     id = select.length - 1;
                 } else {
-                    id = val - 1;
+                    id = select.options.selectedIndex - 1;
                 }
                 return id;
             }
             document.getElementById('prev').addEventListener('click', function () {
-                select.options.selectedIndex = selectChangePrev()
-                updateApp(selectChangePrev() + 1)
+                select.options.selectedIndex = selectChangePrev();
+                updateApp(selectChangePrev() + 1);
             });
 
             // Update app with data from JSON

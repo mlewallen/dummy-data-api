@@ -1,4 +1,6 @@
-/* Resets */
+/* ------------------
+ Resets 
+ ----------------- */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,21 +22,25 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 
-/* Main styles */
+/* ------------------
+ Main styles 
+ ------------------ */
 
 body {
-	background-color: #dfdfdf;
+	background-color: #efefef;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	color: #292f36;
 }
 
+/* Links */
+
 a {
-	color: #3e78b2;
+	color: #2D80D8;
 	text-decoration: none;
 	transition: all .5s ease;
 }
 a:hover {
-	color: #23568a;
+	color: #2872C1;
 	text-decoration: none;
 }
 
@@ -46,25 +52,48 @@ a:hover {
 	display: inline-block;
 }
 
+/* Layout */
+
 .container {
 	width: 94%;
 	margin: auto;
-	max-width: 800px;
+	max-width: 1000px;
 }
 
-/* Color Classes */
+/* Text elements */
+
+h1, h2, h3, h4, h5 ,h6 { 
+	font-weight: bold; 
+	line-height: 1.25em;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.15em; }
+
+/* ------------------
+Color Classes 
+------------------- */
 
 .text-white { color: #fff !important; }
 
-.bg-primary { background-color: #3e78b2; }
-a.bg-primary:hover { background-color: #23568a; }
+.bg-primary { background-color: #2D80D8; }
+a.bg-primary:hover { background-color: #2872C1; }
+.text-primary { color: #2D80D8; }
 
 .bg-success { background-color: #4dcc82; }
 a.bg-success:hover { background-color: #1ba053; }
 
 .bg-danger { background-color: #ff6b6b; }
 
-/* Header */
+.bg-main { background-color: #292f36; }
+
+/*------------------
+ Header 
+ ------------------*/
+
 .navbar { 
 	padding: 1em 2em; 
 	position: relative;
@@ -102,7 +131,18 @@ nav {
 	color: #292f36;
 }
 
-/* Landing Page Styling */
+/*------------------
+Page Title Styling
+------------------*/
+
+.page-title {
+	padding: 3em 0em;
+	text-align: center;
+}
+
+/*------------------
+ Landing Page Styling 
+ ------------------*/
 
 .landing {
 	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)), url(assets/images/landing.jpg) no-repeat center / cover;
@@ -119,7 +159,8 @@ nav {
 .landing h1 {
 	font-size: 2em;
 	font-weight: bold;
-	margin-bottom: 1em;
+	max-width: 750px;
+	margin: 0 auto 1em;
 }
 
 .landing p {
@@ -129,7 +170,9 @@ nav {
 
 .landing .btn { margin-top: .5em; }
 
-/* Main App styling */
+/*------------------ 
+Main App styling 
+------------------*/
 
 .app { padding: 4em 0em; }
 
@@ -201,6 +244,10 @@ p { margin-bottom: 0; padding-bottom: 0; }
 	cursor: pointer;
 	transition: all .4s ease;
 }
+
+/*------------------
+Media Queries
+------------------*/
 
 @media (min-width: 768px) {
 	.image-wrapper {
