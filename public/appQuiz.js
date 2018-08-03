@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     //Global constants
-    const select = document.getElementById('pickPerson');
+    const questions = document.getElementById('questions');
+    const resultsContainer = document.getElementById('results');
+    const submitButton = document.getElementById('submit');
 
     //JSON Request
     let request = new XMLHttpRequest();
