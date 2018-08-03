@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 for (let i = 0; i < len; i++) {
                     selectedOption = select.options[i];
                     if(selectedOption.selected === true) {
-                        let id = select.options[select.selectedIndex].value;
+                        let id = select.options[i].value;
                         updateApp(id);
                     }
                 }
@@ -40,15 +40,19 @@ document.addEventListener('DOMContentLoaded', function() {
             select.addEventListener('change', selectChange);
 
             // Button next code to cycle through options
-            function selectChangeNext() {
-                let val = select.options.selectedIndex;
+            function selectChangeNext() {                
+                let val = parseInt(select.options[select.selectedIndex].value);
                 let id;
                 if(val === select.length - 1) {
-                    id = 0;
+                    id =  0;
+                    console.log('id end=' + val + 'len=' + select.length);
+                    return id;
+                    
                 } else {
                     id = val + 1;
+                    console.log('id=' + id);
+                    return id;                    
                 }
-                return id;
             }
             document.getElementById('next').addEventListener('click', function () {
                 select.options.selectedIndex = selectChangeNext();
@@ -57,12 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Button previous code to cycle through options in reverse
             function selectChangePrev() {
-                //val = parseInt(select.options[select.selectedIndex].value);
+                let val = parseInt(select.options[select.selectedIndex].value);
                 let id;
-                if(select.options.selectedIndex === 0) {
+                if(val === 0) {
                     id = select.length - 1;
                 } else {
-                    id = select.options.selectedIndex - 1;
+                    id = val - 1;
                 }
                 return id;
             }
@@ -73,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Update app with data from JSON
             function updateApp(id) {
+                //console.log(id);
                 document.getElementById('name').innerHTML = data[id].name;
                 document.getElementById('bday').innerHTML = data[id].birthday;
                 document.getElementById('image').style.backgroundImage = 'url(' + data[id].image_url + ')';
