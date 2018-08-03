@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Smart Peeps Quote Generator</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:900|Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body>
     <header class="navbar bg-primary">
         <section class="logo">
-            <a href="/index.html"><h1 class="logo-text text-white">Smart Peeps</h1></a>
+            <a href="/index.html"><h1 class="logo-text text-white"><i class="fa fa-glasses"></i> Smart Peeps</h1></a>
         </section>
         <nav>
             <ul class="nav-list">
@@ -21,7 +21,14 @@
         </nav>
     </header>
 
-    <select name="pickPerson" id="pickPerson"></select>
+    <section class="page-title bg-main">
+        <div class="container">
+                <h1 class="text-white">Quiz</h1>
+                <hr class="short">
+                <p class="text-white">Be sure to remember each scientist's quote. Select a scientist or cycle through them below to get started:</p>
+                <select name="pickPerson" id="pickPerson"></select>
+            </div>
+    </section>
 
     <div id="appStudy" class="app">
         <div class="app-container">            

@@ -28,7 +28,7 @@ time, mark, audio, video {
 
 body {
 	background-color: #efefef;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-family: 'Roboto', Verdana, sans-serif;
 	color: #292f36;
 }
 
@@ -50,7 +50,9 @@ a:hover {
 	font-weight: bold;
 	letter-spacing: 1px;
 	display: inline-block;
+	color: #fff;
 }
+.btn:hover { color: #fff; }
 
 /* Layout */
 
@@ -58,6 +60,14 @@ a:hover {
 	width: 94%;
 	margin: auto;
 	max-width: 1000px;
+}
+
+hr.short {
+	width: 60px;
+	margin: 1em auto;
+	border: 0;
+	background-color: rgba(255,255,255,.75);
+	height: 3px;
 }
 
 /* Text elements */
@@ -77,7 +87,7 @@ h6 { font-size: 1.15em; }
 Color Classes 
 ------------------- */
 
-.text-white { color: #fff !important; }
+.text-white { color: #fff ; }
 
 .bg-primary { background-color: #2D80D8; }
 a.bg-primary:hover { background-color: #2872C1; }
@@ -104,6 +114,7 @@ a.bg-success:hover { background-color: #1ba053; }
 .logo-text {
 	font-weight: bold;
 	font-size: 1.2em;
+	transition: all .5s ease;
 }
 
 nav {
@@ -127,8 +138,8 @@ nav {
 	color: #fff;
 }
 
-.nav-list li .nav-item:hover {
-	color: #292f36;
+.logo-text:hover, .nav-list li .nav-item:hover {
+	color: #9fc1e6;
 }
 
 /*------------------
@@ -140,13 +151,17 @@ Page Title Styling
 	text-align: center;
 }
 
+.page-title h1 { font-size: 4em; }
+
+.page-title p { margin-bottom: 1em; }
+
 /*------------------
  Landing Page Styling 
  ------------------*/
 
 .landing {
 	background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.7)), url(assets/images/landing.jpg) no-repeat center / cover;
-	height: calc(100vh - 58px);
+	height: calc(100vh - 56px);
 	min-height: 500px;
 	display: flex;
     justify-content: center;
@@ -274,7 +289,7 @@ Media Queries
 	.logo-text { font-size: .9em; }
 
 	/* Landing Page */
-	.landing { height: calc(100vh - 52px);}
+	.landing { height: calc(100vh - 50px);}
 
 	/* App styling */
 	.controls { left: inherit; right: 0; transform: none; }
