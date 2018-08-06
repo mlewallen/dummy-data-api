@@ -95,7 +95,7 @@ a.bg-primary:hover { background-color: #2872C1; }
 .text-primary { color: #2D80D8; }
 
 .bg-success { background-color: #4dcc82; }
-a.bg-success:hover { background-color: #1ba053; }
+a.bg-success:hover { background-color: #35b169; }
 
 .bg-danger { background-color: #ff6b6b; }
 
@@ -143,9 +143,10 @@ nav {
 	color: #9fc1e6;
 }
 
-.btn-nav {
+.nav-list li .nav-item.btn-nav {
 	padding: .5em 1em;
 	border-radius: 5em;
+	color: #fff;
 }
 
 /*------------------
