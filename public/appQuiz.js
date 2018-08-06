@@ -41,26 +41,78 @@ request.onreadystatechange = function() {
             c: data[2].quote
           },
           correctAnswer: 'c'
-        }
+        },
+        {
+            question: data[3].image_url,
+            answers: {
+              a: data[3].quote,
+              b: data[4].quote,
+              c: data[7].quote
+            },
+            correctAnswer: 'a'
+          },
+          {
+            question: data[4].image_url,
+            answers: {
+              a: data[8].quote,
+              b: data[2].quote,
+              c: data[4].quote
+            },
+            correctAnswer: 'c'
+          },
+          {
+            question: data[5].image_url,
+            answers: {
+              a: data[6].quote,
+              b: data[5].quote,
+              c: data[2].quote
+            },
+            correctAnswer: 'b'
+          },
+          {
+            question: data[6].image_url,
+            answers: {
+              a: data[6].quote,
+              b: data[1].quote,
+              c: data[8].quote
+            },
+            correctAnswer: 'a'
+          },
+          {
+            question: data[7].image_url,
+            answers: {
+              a: data[0].quote,
+              b: data[5].quote,
+              c: data[7].quote
+            },
+            correctAnswer: 'c'
+          },
+          {
+            question: data[8].image_url,
+            answers: {
+              a: data[3].quote,
+              b: data[8].quote,
+              c: data[2].quote
+            },
+            correctAnswer: 'b'
+          }
       ];
 
       function buildQuiz() {
-        // we'll need a place to store the HTML output
+        // store the HTML output
         const output = [];
 
         // for each question...
         questions.forEach((currentQuestion, questionNumber) => {
-          // we'll want to store the list of answer choices
+          // store the list of answer choices
           const answers = [];
 
-          // and for each available answer...
+          // and for each available answer
           for (letter in currentQuestion.answers) {
-            // ...add an HTML radio button
+            // add an HTML radio button
             answers.push(
               `<div class="answer">
-                <label>
-                   <input type="radio" name="question${questionNumber}" value="${letter}">${letter} : ${currentQuestion.answers[letter]}
-                 </label>
+                <input type="radio" name="question${questionNumber}" value="${letter}" id="${questionNumber}${letter}"/><label for="${questionNumber}${letter}">${currentQuestion.answers[letter]}</label>
                </div>`
             );
           }
@@ -68,7 +120,12 @@ request.onreadystatechange = function() {
           // add this question and its answers to the output
           output.push(
             `<div class="slide">
-               <div class="scientist-image image-wrapper" id="image" style="background-image: url(${currentQuestion.question}"></div>
+               <div class="scientist-image image-wrapper" id="image" style="background-image: url(${currentQuestion.question}">
+                 <div class="scientist-info">
+                   <h4>${data[questionNumber].name}</h4>
+                   <p>${data[questionNumber].birthday}</p>
+                 </div>
+               </div>
                <div class="answers">${answers.join("")}</div>
              </div>`
           );
@@ -97,36 +154,43 @@ request.onreadystatechange = function() {
             // add to the number of correct answers
             numCorrect++;
 
-            // color the answers green
-            answerContainers[questionNumber].style.color = "lightgreen";
+            // color the answer green
+            answerContainer.querySelector(selector).parentElement.classList.add('bg-success', 'text-white');
           } else {
-            // if answer is wrong or blank
-            // color the answers red
-            answerContainers[questionNumber].style.color = "red";
+            // if answer is wrong or blank color the answer red
+            answerContainer.querySelector(selector).parentElement.classList.add('bg-danger', 'text-white');
+          }
+          
+          // disable after quiz has been submitted
+          questionsContainer.parentElement.parentElement.classList.add('disabled');
+
+          let inputs = document.getElementsByTagName('input');
+          for(i = 0; i < inputs.length; i++){
+              inputs[i].disabled = 'disabled';
           }
         });
 
         // show number of correct answers out of total
-        resultsContainer.innerHTML = `${numCorrect} out of ${questions.length}`;
+        resultsContainer.innerHTML = `<h4>You got ${numCorrect} out of ${questions.length} quotes correct!</h4><p>Feel free to go back through your answers to see what you got wrong or right.</p><a href="quiz.html" class="btn bg-success pulse">Retake Quiz <i class="fa fa-pencil-alt"></i></a>`;
       }
 
       function showSlide(n) {
-        slides[currentSlide].classList.remove("active-slide");
-        slides[n].classList.add("active-slide");
+        slides[currentSlide].classList.remove('active-slide');
+        slides[n].classList.add('active-slide');
         currentSlide = n;
 
         if (currentSlide === 0) {
-          previousButton.style.display = "none";
+          previousButton.style.display = 'none';
         } else {
-          previousButton.style.display = "inline-block";
+          previousButton.style.display = 'inline-block';
         }
 
         if (currentSlide === slides.length - 1) {
-          nextButton.style.display = "none";
-          submitButton.style.display = "inline-block";
+          nextButton.style.display = 'none';
+          submitButton.style.display = 'inline-block';
         } else {
-          nextButton.style.display = "inline-block";
-          submitButton.style.display = "none";
+          nextButton.style.display = 'inline-block';
+          submitButton.style.display = 'none';
         }
       }
 
@@ -141,17 +205,17 @@ request.onreadystatechange = function() {
       // display quiz right away
       buildQuiz();
 
-      const previousButton = document.getElementById("previous");
-      const nextButton = document.getElementById("next");
-      const slides = document.querySelectorAll(".slide");
+      const previousButton = document.getElementById('previous');
+      const nextButton = document.getElementById('next');
+      const slides = document.querySelectorAll('.slide');
       let currentSlide = 0;
 
       showSlide(0);
 
       // on submit, show results
-      submitButton.addEventListener("click", showResults);
-      previousButton.addEventListener("click", showPreviousSlide);
-      nextButton.addEventListener("click", showNextSlide);
+      submitButton.addEventListener('click', showResults);
+      previousButton.addEventListener('click', showPreviousSlide);
+      nextButton.addEventListener('click', showNextSlide);
 
     } else if (this.status == 404){
         //Error message if request fails
