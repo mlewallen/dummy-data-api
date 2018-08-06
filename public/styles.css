@@ -1,5 +1,5 @@
 /* ------------------
- Resets 
+ Resets
  ----------------- */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -23,7 +23,7 @@ time, mark, audio, video {
 }
 
 /* ------------------
- Main styles 
+ Main styles
  ------------------ */
 
 body {
@@ -51,6 +51,7 @@ a:hover {
 	letter-spacing: 1px;
 	display: inline-block;
 	color: #fff;
+	border-radius: 5em;
 }
 .btn:hover { color: #fff; }
 
@@ -72,8 +73,8 @@ hr.short {
 
 /* Text elements */
 
-h1, h2, h3, h4, h5 ,h6 { 
-	font-weight: bold; 
+h1, h2, h3, h4, h5 ,h6 {
+	font-weight: bold;
 	line-height: 1.25em;
 }
 h1 { font-size: 2em; }
@@ -84,7 +85,7 @@ h5 { font-size: 1.2em; }
 h6 { font-size: 1.15em; }
 
 /* ------------------
-Color Classes 
+Color Classes
 ------------------- */
 
 .text-white { color: #fff ; }
@@ -101,11 +102,11 @@ a.bg-success:hover { background-color: #1ba053; }
 .bg-main { background-color: #292f36; }
 
 /*------------------
- Header 
+ Header
  ------------------*/
 
-.navbar { 
-	padding: 1em 2em; 
+.navbar {
+	padding: 1em 2em;
 	position: relative;
 	z-index: 10;
 	box-shadow: 1px 5px 10px rgba(0,0,0,.15);
@@ -124,7 +125,7 @@ nav {
 	transform: translateY(-50%);
 }
 
-.nav-list { 
+.nav-list {
 	text-align: right;
 	list-style: none;
 }
@@ -142,6 +143,11 @@ nav {
 	color: #9fc1e6;
 }
 
+.btn-nav {
+	padding: .5em 1em;
+	border-radius: 5em;
+}
+
 /*------------------
 Page Title Styling
 ------------------*/
@@ -156,7 +162,7 @@ Page Title Styling
 .page-title p { margin-bottom: 1em; }
 
 /*------------------
- Landing Page Styling 
+ Landing Page Styling
  ------------------*/
 
 .landing {
@@ -185,8 +191,8 @@ Page Title Styling
 
 .landing .btn { margin-top: .5em; }
 
-/*------------------ 
-Main App styling 
+/*------------------
+Main App styling
 ------------------*/
 
 .app { padding: 4em 0em; }
@@ -216,7 +222,10 @@ Main App styling
 	box-sizing: border-box;
 }
 
-img { background-color: #8d99ae; transition: all .5s ease; }
+img {
+	background-color: #8d99ae;
+	transition: all .5s ease;
+}
 
 #quote {
 	margin: 0;
@@ -258,6 +267,46 @@ p { margin-bottom: 0; padding-bottom: 0; }
 	float: left;
 	cursor: pointer;
 	transition: all .4s ease;
+}
+
+/*------------------
+Quiz styling
+------------------*/
+
+#appQuiz .app-container {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+	opacity: 0;
+	transition: all .5s ease;
+}
+
+.slide.active-slide {
+	opacity: 1;
+}
+
+.slide .answers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 57%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+	z-index: 100;
+}
+
+.answers .answer {
+  padding: 4em 2em;
+  background-color: #fff;
+	box-shadow: 0 0 20px rgba(0,0,0,.175);
 }
 
 /*------------------
