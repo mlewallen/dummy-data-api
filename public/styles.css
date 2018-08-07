@@ -294,6 +294,47 @@ p { margin-bottom: 0; padding-bottom: 0; }
 /*------------------
 Quiz styling
 ------------------*/
+.overlay, #results { 
+	transition: all .5s ease;
+}
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.5);
+	z-index: 0;
+	opacity: 0;
+}
+.overlay.fadeIn { 
+	opacity: 1; 
+	z-index: 6;
+}
+
+#results {
+	position: fixed;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	padding: 4em;
+	text-align: center;
+	z-index: 0;
+	box-shadow: 0px 15px 35px rgba(0,0,0,.175);
+	max-width: 550px;
+	width: 75%;
+	opacity: 0;
+}
+#results.open {
+	top: 50%;
+	opacity: 1;
+	z-index: 6;
+}
+
+#results p, #results .btn {
+	margin-top: 2em;
+}
+
 .breadcrumbs {
 	margin-top: 4em;
 	overflow: auto;
@@ -347,6 +388,7 @@ Quiz styling
 	opacity: 1;
 	position: relative;
 	height: auto;
+	z-index: 1;
 }
 
 .slide .answers {
@@ -427,15 +469,8 @@ Quiz styling
 #appQuiz .quiz-btns {
 	margin-top: 4em;
 	text-align: center;
-}
-
-#results p, #results .btn {
-	margin-top: 2em;
-}
-
-#appQuiz.disabled #results {
-	padding: 2em 1em;
-	margin-top: 4em;
+	position: relative;
+	z-index: 5;
 }
 
 .disabled .answers, .disabled label, .disabled input, .disabled #submit {
@@ -446,6 +481,8 @@ Quiz styling
 	filter: grayscale(100%);
 	opacity: .75;
 }
+
+#retake { display: none; }
 
 /*------------------
 Media Queries
