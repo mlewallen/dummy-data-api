@@ -169,6 +169,7 @@ Page Title Styling
 ------------------*/
 
 .page-title {
+	background: #292f36 url(assets/images/drawing-bg.png) repeat fixed center / 25%;
 	padding: 3em 0em;
 	text-align: center;
 }
@@ -293,6 +294,24 @@ p { margin-bottom: 0; padding-bottom: 0; }
 /*------------------
 Quiz styling
 ------------------*/
+.breadcrumbs {
+	margin-top: 4em;
+	overflow: auto;
+	width: 100%;
+}
+
+.breadcrumbs .timer {
+	float: left;
+}
+
+.timer #time {
+	margin-left: .5em;
+}
+
+.breadcrumbs .pagination {
+	float: right;
+	line-height: 61px;
+}
 
 #appQuiz .app-container {
 	background-color: transparent;
@@ -352,8 +371,8 @@ Quiz styling
 	z-index: 1;
 	display: block;
 }
-.answer:hover { 
-	color: #fff; 
+.answer:hover {
+	color: #fff;
 	cursor: pointer;
 }
 .disabled .answer:hover {
@@ -466,12 +485,12 @@ Media Queries
 	.landing { height: calc(100vh - 50px);}
 
 	/* Study styling */
-	.controls { 
-		left: inherit; 
-		right: 0; 
+	.controls {
+		left: inherit;
+		right: 0;
 		transform: none;
 		position: relative;
-		width: auto; 
+		width: auto;
 	}
 	.controls .prev { opacity: .95; }
 	.controls .next, .controls .prev {
@@ -480,9 +499,9 @@ Media Queries
 		text-align: center;
 	}
 
-	.content-wrapper { 
-		position: relative; 
-		overflow: hidden; 
+	.content-wrapper {
+		position: relative;
+		overflow: hidden;
 	}
 
 	.quoteIcon {
@@ -504,6 +523,10 @@ Media Queries
 	#appQuiz.disabled #results, .slide .answers .answer, #appQuiz .quiz-btns {
 		margin-top: 2em;
 	}
+}
+
+@media (max-width: 539px) {
+	.hidden-xs { display: none; }
 }
 
 @media (max-width: 539px) {
