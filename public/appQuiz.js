@@ -2,6 +2,7 @@
 const questionsContainer = document.getElementById('questions');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
+const pagination = document.getElementById('page');
 
 //JSON Request
 let request = new XMLHttpRequest();
@@ -20,14 +21,14 @@ request.onreadystatechange = function() {
           answers: {
             a: data[0].quote,
             b: data[7].quote,
-            c: data[2].quote
+            c: data[5].quote
           },
           correctAnswer: 'a'
         },
         {
           question: data[1].image_url,
           answers: {
-            a: data[0].quote,
+            a: data[4].quote,
             b: data[1].quote,
             c: data[8].quote
           },
@@ -46,7 +47,7 @@ request.onreadystatechange = function() {
             question: data[3].image_url,
             answers: {
               a: data[3].quote,
-              b: data[4].quote,
+              b: data[6].quote,
               c: data[7].quote
             },
             correctAnswer: 'a'
@@ -55,7 +56,7 @@ request.onreadystatechange = function() {
             question: data[4].image_url,
             answers: {
               a: data[8].quote,
-              b: data[2].quote,
+              b: data[0].quote,
               c: data[4].quote
             },
             correctAnswer: 'c'
@@ -160,7 +161,7 @@ request.onreadystatechange = function() {
             // if answer is wrong or blank color the answer red
             answerContainer.querySelector(selector).parentElement.classList.add('bg-danger', 'text-white');
           }
-          
+
           // disable after quiz has been submitted
           questionsContainer.parentElement.parentElement.classList.add('disabled');
 
@@ -174,10 +175,13 @@ request.onreadystatechange = function() {
         resultsContainer.innerHTML = `<h4>You got ${numCorrect} out of ${questions.length} quotes correct!</h4><p>Feel free to go back through your answers to see what you got wrong or right.</p><a href="quiz.html" class="btn bg-success pulse">Retake Quiz <i class="fa fa-pencil-alt"></i></a>`;
       }
 
+      // Loop through slides
       function showSlide(n) {
         slides[currentSlide].classList.remove('active-slide');
         slides[n].classList.add('active-slide');
         currentSlide = n;
+        // update pagination
+        pagination.innerHTML = `${data[n].id} of 9`;
 
         if (currentSlide === 0) {
           previousButton.style.display = 'none';
@@ -193,11 +197,9 @@ request.onreadystatechange = function() {
           submitButton.style.display = 'none';
         }
       }
-
       function showNextSlide() {
         showSlide(currentSlide + 1);
       }
-
       function showPreviousSlide() {
         showSlide(currentSlide - 1);
       }
@@ -216,6 +218,41 @@ request.onreadystatechange = function() {
       submitButton.addEventListener('click', showResults);
       previousButton.addEventListener('click', showPreviousSlide);
       nextButton.addEventListener('click', showNextSlide);
+
+      //Timer functionality
+      function startTimer(duration, display) {
+        let timer = duration, minutes, seconds;
+        function outofTime() {
+          resultsContainer.innerHTML = `you done fucked up`;
+        }
+        setInterval(function () {
+          // set up minutes and seconds based on time
+          minutes = parseInt(timer / 60, 10)
+          seconds = parseInt(timer % 60, 10);
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+
+          // turn timer red once there's 1 minute left
+          if (minutes < 1){
+            display.parentElement.classList.add('bg-danger');
+          }
+
+          // update time element with current time
+          display.textContent = minutes + ":" + seconds;
+
+          // once timer is done, do something
+          if (--timer < 0) {
+              outofTime;
+              timer = 0;
+          }
+        }, 1000);
+
+      }
+      window.onload = function () {
+        let fiveMinutes = 60 * 2;
+        const display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
+      };
 
     } else if (this.status == 404){
         //Error message if request fails
