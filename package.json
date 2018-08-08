@@ -4,11 +4,16 @@
   "description": "Dummy API for a sample app",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/json-server --watch db.json"
+    "babel": "babel --presets es2015 public/appQuiz.js -o build/appQuiz.bundle.js",
+    "start": "./node_modules/.bin/json-server --watch db.json",
+    "webpack": "webpack"
   },
   "author": "dealeron",
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.8.19"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.5"
   }
 }
