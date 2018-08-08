@@ -26,7 +26,7 @@
         <div class="container">
             <h1 class="text-white">Quiz</h1>
             <hr class="short">
-            <p class="text-white">Show off your smarts by matching the scientist's image with their quote:</p>
+            <p class="text-white">Show off your smarts by matching the scientist's image with their quote before the timer runs out!</p>
         </div>
     </section>
 
@@ -55,6 +55,11 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        window.onload = function() {
+            document.querySelector('.app').classList.add('loaded');
+        };
+    </script>
     <script type="text/javascript" src="appQuiz.js"></script>
 </body>
 </html>

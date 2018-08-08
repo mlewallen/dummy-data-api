@@ -22,11 +22,11 @@
 
     <section class="page-title bg-main">
         <div class="container">
-                <h1 class="text-white">Study</h1>
-                <hr class="short">
-                <p class="text-white">Be sure to remember each scientist's quote. Select a scientist or cycle through them below to get started:</p>
-                <select name="pickPerson" id="pickPerson"></select>
-            </div>
+            <h1 class="text-white">Study</h1>
+            <hr class="short">
+            <p class="text-white">Be sure to remember each scientist's quote. Select a scientist or cycle through them below to get started:</p>
+            <select name="pickPerson" id="pickPerson"></select>
+        </div>
     </section>
 
     <div id="appStudy" class="app">
@@ -42,13 +42,17 @@
                 <a id="prev" class="prev bg-primary" href="javascript:void(0)"><i class="fa fa-angle-left fa-1x"></i></a>
                 <a id="next" class="next bg-primary" href="javascript:void(0)"><i class="fa fa-angle-right fa-1x"></i></a>
             </div>
-            
         </div>
         <div class="container quiz-btn">
             <a href="quiz.html" class="btn bg-success pulse">Take the Quiz <i class="fa fa-pencil-alt"></i></a>
         </div>
     </div>
 
+    <script type="text/javascript">
+        window.onload = function() {
+            document.querySelector('.app-container').classList.add('loaded');
+        };
+    </script>
     <script type="text/javascript" src="appStudy.js"></script>
 </body>
 </html>

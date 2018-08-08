@@ -3,6 +3,7 @@ const questionsContainer = document.getElementById('questions');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const pagination = document.getElementById('page');
+const display = document.querySelector('#time');
 
 //JSON Request
 let request = new XMLHttpRequest();
@@ -15,6 +16,7 @@ request.onreadystatechange = function() {
     // Parse out the reponse
     let data = JSON.parse(this.responseText);
 
+    // questions for the quiz built out from JSON data
     const questions = [
       {
         question: data[0].image_url,
@@ -99,29 +101,24 @@ request.onreadystatechange = function() {
         }
     ];
 
+    // build out quiz from the questions array
     function buildQuiz() {
-      // store the HTML output
       const output = [];
 
-      // for each question...
       questions.forEach((currentQuestion, questionNumber) => {
-        // store the list of answer choices
         const answers = [];
 
-        // and for each available answer
         for (letter in currentQuestion.answers) {
-          // add an HTML radio button
           answers.push(
             `<div class="answer">
               <input type="radio" name="question${questionNumber}" value="${letter}" id="${questionNumber}${letter}"/><label for="${questionNumber}${letter}">${currentQuestion.answers[letter]}</label>
-              </div>`
+            </div>`
           );
         }
 
-        // add this question and its answers to the output
         output.push(
           `<div class="slide">
-              <div class="scientist-image image-wrapper" id="image" style="background-image: url(${currentQuestion.question}">
+              <div class="scientist-image image-wrapper" id="image" style="background-image: url(${currentQuestion.question})">
                 <div class="scientist-info">
                   <h4>${data[questionNumber].name}</h4>
                   <p>${data[questionNumber].birthday}</p>
@@ -132,18 +129,13 @@ request.onreadystatechange = function() {
         );
       });
 
-      // finally combine our output list into one string of HTML and put it on the page
       questionsContainer.innerHTML = output.join("");
     }
 
     function showResults() {
-      // gather answer containers from our quiz
       const answerContainers = questionsContainer.querySelectorAll(".answers");
-
-      // keep track of user's answers
       let numCorrect = 0;
 
-      // for each question...
       questions.forEach((currentQuestion, questionNumber) => {
         // find selected answer
         const answerContainer = answerContainers[questionNumber];
@@ -180,10 +172,15 @@ request.onreadystatechange = function() {
       // show number of correct answers out of total
       resultsContainer.innerHTML = `<h3>You got ${numCorrect} out of ${questions.length} quotes correct!</h3><p>Feel free to go back through your answers to see what you got wrong or right.</p><a href="javascript:void(0)" id="review" class="btn bg-main">Review <i class="fa fa-glasses"></i></a> <a href="quiz.html" class="btn bg-success pulse">Retake Quiz <i class="fa fa-pencil-alt"></i></a>`;
 
-      // add review listener
+      // add review listener for review btn
       const reviewButton = document.getElementById('review');
       reviewButton.addEventListener('click', showAnswers);
     }
+    // on submit show results and stop timer
+    submitButton.addEventListener('click', function() {
+      showResults();
+      submitclicked();
+    });
 
     // display quiz right away
     buildQuiz();
@@ -229,11 +226,7 @@ request.onreadystatechange = function() {
     const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
 
-    // click event handlers
-    submitButton.addEventListener('click', function() {
-      showResults();
-      submitclicked();
-    });
+    // click event handlers for slides
     previousButton.addEventListener('click', showPreviousSlide);
     nextButton.addEventListener('click', showNextSlide);
 
@@ -241,8 +234,6 @@ request.onreadystatechange = function() {
 
     // Timer functionality
     let duration = 60 * 3; // 3 minutes
-    const display = document.querySelector('#time');
-
     let t = setInterval(function() {
       let minutes = parseInt(duration / 60, 10)
       let seconds = parseInt(duration % 60, 10);

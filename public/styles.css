@@ -1,6 +1,7 @@
 /* ------------------
  Resets
  ----------------- */
+ 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -56,7 +57,7 @@ a:hover {
 .btn:hover { color: #fff; }
 
 .btn.pulse {
-	animation: btnPulse 2s infinite forwards ease;
+	animation: btnPulse 3s infinite forwards ease;
 }
 @keyframes btnPulse{
 	0%{
@@ -138,6 +139,8 @@ nav {
 	right: 2em;
 	top: 50%;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
 }
 
 .nav-list {
@@ -187,11 +190,31 @@ Page Title Styling
 	height: calc(100vh - 56px);
 	min-height: 500px;
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 	align-items: center;
 	text-align: center;
 	padding: 4em 0em;
 	box-sizing: border-box;
+}
+
+.landing .container, #appStudy .app-container, #appQuiz.app {
+	transition: all 1s ease;
+	filter: blur(4px);
+	-webkit-filter: blur(4px);
+	-moz-filter: blur(4px);
+	opacity: 0;
+	transform: translateY(5%);
+	-webkit-transform: translateY(5%);
+	-moz-transform: translateY(5%);
+}
+.landing .container.loaded, #appStudy .app-container.loaded, #appQuiz.app.loaded {
+	filter: blur(0);
+	-webkit-filter: blur(0);
+	-moz-filter: blur(0);
+	opacity: 1;
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-moz-transform: translateY(0);
 }
 
 .landing h1 {
@@ -294,6 +317,7 @@ p { margin-bottom: 0; padding-bottom: 0; }
 /*------------------
 Quiz styling
 ------------------*/
+
 .overlay, #results { 
 	transition: all .5s ease;
 }
@@ -317,13 +341,16 @@ Quiz styling
 	top: 100%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
 	padding: 4em;
 	text-align: center;
 	z-index: 0;
 	box-shadow: 0px 15px 35px rgba(0,0,0,.175);
 	max-width: 550px;
-	width: 75%;
+	width: 90%;
 	opacity: 0;
+	box-sizing: border-box;
 }
 #results.open {
 	top: 50%;
@@ -479,6 +506,8 @@ Quiz styling
 
 .disabled #submit {
 	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
 	opacity: .75;
 }
 
@@ -493,7 +522,6 @@ Media Queries
 		padding: 4em 2em;
 	}
 }
-
 @media (min-width: 768px) {
 	.image-wrapper {
 		width: 40%;
@@ -560,12 +588,13 @@ Media Queries
 	#appQuiz.disabled #results, .slide .answers .answer, #appQuiz .quiz-btns {
 		margin-top: 2em;
 	}
-}
 
-@media (max-width: 539px) {
-	.hidden-xs { display: none; }
-}
+	#results { padding: 2em; }
 
+	.quiz-btns .btn {
+    margin-top: .5em;
+	}
+}
 @media (max-width: 539px) {
 	.hidden-xs { display: none; }
 }
