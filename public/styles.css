@@ -499,15 +499,12 @@ Quiz styling
 	z-index: 5;
 }
 
-.disabled .answers, .disabled label, .disabled input, .disabled #submit {
+.disabled .answers, .disabled label, .disabled input {
 	cursor: not-allowed;
 }
 
 .disabled #submit {
-	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	opacity: .75;
+	display: none !important;
 }
 
 #retake { display: none; }
