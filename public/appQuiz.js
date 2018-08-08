@@ -105,42 +105,28 @@ request.onreadystatechange = function() {
     function buildQuiz() {
       const output = [];
 
-      questions.forEach((currentQuestion, questionNumber) => {
+      questions.forEach(function(currentQuestion, questionNumber) {
         const answers = [];
 
         for (letter in currentQuestion.answers) {
-          answers.push(
-            `<div class="answer">
-              <input type="radio" name="question${questionNumber}" value="${letter}" id="${questionNumber}${letter}"/><label for="${questionNumber}${letter}">${currentQuestion.answers[letter]}</label>
-            </div>`
-          );
+          answers.push("<div class=\"answer\">\n<input type=\"radio\" name=\"question" + questionNumber + "\" value=\"" + letter + "\" id=\"" + questionNumber + letter + "\"/><label for=\"" + questionNumber + letter + "\">" + currentQuestion.answers[letter] + "</label>\n</div>");
         }
 
-        output.push(
-          `<div class="slide">
-              <div class="scientist-image image-wrapper" id="image" style="background-image: url(${currentQuestion.question})">
-                <div class="scientist-info">
-                  <h4>${data[questionNumber].name}</h4>
-                  <p>${data[questionNumber].birthday}</p>
-                </div>
-              </div>
-              <div class="answers">${answers.join("")}</div>
-            </div>`
-        );
+        output.push("<div class=\"slide\">\n<div class=\"scientist-image image-wrapper\" id=\"image\" style=\"background-image: url(" + currentQuestion.question + ")\">\n<div class=\"scientist-info\">\n<h4>" + data[questionNumber].name + "</h4>\n<p>" + data[questionNumber].birthday + "</p>\n</div>\n</div>\n<div class=\"answers\">" + answers.join("") + "</div>\n</div>");
       });
 
       questionsContainer.innerHTML = output.join("");
     }
 
     function showResults() {
-      const answerContainers = questionsContainer.querySelectorAll(".answers");
+      let answerContainers = questionsContainer.querySelectorAll(".answers");
       let numCorrect = 0;
 
-      questions.forEach((currentQuestion, questionNumber) => {
+      questions.forEach(function(currentQuestion, questionNumber) {
         // find selected answer
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        let answerContainer = answerContainers[questionNumber];
+        let selector = "input[name=question" + questionNumber + "]:checked";
+        let userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
         // check answers
         if (userAnswer == '') {
@@ -170,7 +156,7 @@ request.onreadystatechange = function() {
       resultsContainer.classList.add('open');
 
       // show number of correct answers out of total
-      resultsContainer.innerHTML = `<h3>You got ${numCorrect} out of ${questions.length} quotes correct!</h3><p>Feel free to go back through your answers to see what you got wrong or right.</p><a href="javascript:void(0)" id="review" class="btn bg-main">Review <i class="fa fa-glasses"></i></a> <a href="quiz.html" class="btn bg-success pulse">Retake Quiz <i class="fa fa-pencil-alt"></i></a>`;
+      resultsContainer.innerHTML = "<h3>You got " + numCorrect + " out of " + questions.length + " quotes correct!</h3><p>Feel free to go back through your answers to see what you got wrong or right.</p><a href=\"javascript:void(0)\" id=\"review\" class=\"btn bg-main\">Review <i class=\"fa fa-glasses\"></i></a> <a href=\"quiz.html\" class=\"btn bg-success pulse\">Retake Quiz <i class=\"fa fa-pencil-alt\"></i></a>";
 
       // add review listener for review btn
       const reviewButton = document.getElementById('review');
@@ -191,7 +177,7 @@ request.onreadystatechange = function() {
       slides[n].classList.add('active-slide');
       currentSlide = n;
       // update pagination
-      pagination.innerHTML = `${data[n].id} of 9`;
+      pagination.innerHTML = data[n].id + " of 9";
 
       if (currentSlide === 0) {
         previousButton.style.display = 'none';

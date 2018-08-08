@@ -190,7 +190,6 @@ Page Title Styling
 	height: calc(100vh - 56px);
 	min-height: 500px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
 	text-align: center;
 	padding: 4em 0em;
