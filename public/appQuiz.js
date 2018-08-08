@@ -150,22 +150,28 @@ request.onreadystatechange = function() {
         const selector = `input[name=question${questionNumber}]:checked`;
         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-        // if answer is correct
-        if (userAnswer === currentQuestion.correctAnswer) {
+        // check answers
+        if (userAnswer == '') {
+          let blank = 0;
+          blank++;
+          if(blank > 0){
+            return;
+          }
+        } else if (userAnswer === currentQuestion.correctAnswer) {
           numCorrect++;
           answerContainer.querySelector(selector).parentElement.classList.add('bg-success', 'text-white');
         } else {
           answerContainer.querySelector(selector).parentElement.classList.add('bg-danger', 'text-white');
         }
-
-        // disable after quiz has been submitted
-        questionsContainer.parentElement.parentElement.classList.add('disabled');
-
-        let inputs = document.getElementsByTagName('input');
-        for(i = 0; i < inputs.length; i++){
-          inputs[i].disabled = 'disabled';
-        }
       });
+
+      // disable after quiz has been submitted
+      questionsContainer.parentElement.parentElement.classList.add('disabled');
+
+      let inputs = document.getElementsByTagName('input');
+      for(i = 0; i < inputs.length; i++){
+        inputs[i].disabled = 'disabled';
+      }
 
       // show modal with answers/overlay
       document.querySelector('.overlay').classList.add('fadeIn');
@@ -178,7 +184,7 @@ request.onreadystatechange = function() {
       const reviewButton = document.getElementById('review');
       reviewButton.addEventListener('click', showAnswers);
     }
-    
+
     // display quiz right away
     buildQuiz();
 
@@ -198,7 +204,7 @@ request.onreadystatechange = function() {
 
       if (currentSlide === slides.length - 1) {
         nextButton.style.display = 'none';
-        submitButton.style.display = 'inline-block'; 
+        submitButton.style.display = 'inline-block';
       } else {
         nextButton.style.display = 'inline-block';
         submitButton.style.display = 'none';
@@ -228,14 +234,13 @@ request.onreadystatechange = function() {
       showResults();
       submitclicked();
     });
-    //submitButton.addEventListener('click', submitclicked;
     previousButton.addEventListener('click', showPreviousSlide);
     nextButton.addEventListener('click', showNextSlide);
 
     showSlide(0);
 
     // Timer functionality
-    let duration = 60 * 2; // 2 minutes
+    let duration = 60 * 3; // 3 minutes
     const display = document.querySelector('#time');
 
     let t = setInterval(function() {
@@ -254,7 +259,7 @@ request.onreadystatechange = function() {
       if (--duration < 0) {
         clearInterval(t);
         outofTime();
-      } 
+      }
     }, 1000);
 
     // when the timer runs out display error
